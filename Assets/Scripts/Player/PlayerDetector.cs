@@ -39,6 +39,11 @@ public class PlayerDetector : MonoBehaviour
         }
     }   
 
+    public void AddJumpForce(float multipler)
+    {
+        _rigidBody.AddForce(new Vector2( 0, Player.Instance.JumpHoldForce * multipler), ForceMode2D.Impulse);
+    }
+
     [SerializeField] Transform bottomCircle;
     [SerializeField] float groundCheckRadius;
 
@@ -90,7 +95,7 @@ public class PlayerDetector : MonoBehaviour
         }
         else if (!isGrounded) //If in air
         {
-            _rigidBody.velocity = new Vector2(Player.Instance.MovementSpeed * xInput, _rigidBody.velocity.y);
+           // _rigidBody.velocity = new Vector2(Player.Instance.MovementSpeed * xInput, _rigidBody.velocity.y);
         }
     }
 

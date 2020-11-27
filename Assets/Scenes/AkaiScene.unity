@@ -403,7 +403,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 2
-  _jumpForce: 9
+  _jumpForce: 4
+  _jumpHoldForce: 5
+  _jumpHoldTime: 1
 --- !u!4 &1129009359
 Transform:
   m_ObjectHideFlags: 0
@@ -515,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detector: {fileID: 1069586154}
-  _smoothTime: 0.5
+  _smoothTime: 0.05
   PAnimator: {fileID: 0}
 --- !u!1 &1580839341
 GameObject:

@@ -15,4 +15,8 @@ public static class PlayerInput{
         return Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W);
     }
 
+    public static bool isJumpHold(){
+        return Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W);
+    }
+
 }

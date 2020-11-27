@@ -8,9 +8,20 @@ public class Player : MonoBehaviour
     private FSM playerController;
 
     [SerializeField] private float _movementSpeed;
-    [SerializeField] public  float _jumpForce;
+    [SerializeField] private  float _jumpForce;
+
+    [SerializeField] private  float _jumpHoldForce;
+    
+    [SerializeField] private  float _jumpHoldTime;
 
 
+    public float JumpHoldForce{
+        get { return _jumpHoldForce;}
+    }
+
+    public float JumpHoldTime{
+        get { return _jumpHoldTime;}
+    }
     public float JumpForce{
         get { return _jumpForce;}
     }
