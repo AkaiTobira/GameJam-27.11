@@ -17,12 +17,11 @@ public struct GameEvent{
         parameter = null;
         type = _type;
     }
-
 };
 
 public static class GameEventSystem
 {
-    static Dictionary< GameEventType, List<IListenToEvents>> _registeredObjects = new Dictionary<GameEventType, List<IListenToEvents>>(); 
+    static Dictionary<GameEventType, List<IListenToEvents>> _registeredObjects = new Dictionary<GameEventType, List<IListenToEvents>>(); 
 
     public static void RegisterListener( IListenToEvents newListener, GameEventType type){
         if( !_registeredObjects.ContainsKey(type) ){
