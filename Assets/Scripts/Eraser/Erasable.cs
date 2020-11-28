@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.Collections;
 using UnityEngine;
 
 public class Erasable : MonoBehaviour
@@ -11,6 +13,8 @@ public class Erasable : MonoBehaviour
     private Color32 _transparent = new Color32(0, 0, 0, 0);
     private Collider2D _myCollider;
     private RubberEraser _rubberEraser;
+    private int pixelsLeft;
+    private NativeArray<Color32> _colors;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +34,9 @@ public class Erasable : MonoBehaviour
         _texture.Apply();
         _sprite = Sprite.Create(_texture, spriteRenderer.sprite.rect, new Vector2(0.5f, 0.5f));
         spriteRenderer.sprite = _sprite;
+        _colors = _texture.GetRawTextureData<Color32>();
+
+        pixelsLeft = _colors.Count(c => c.a != 0);
     }
 
     public void UpdateTexture(Vector2 hitPoint, bool resetLastPos = false)
@@ -56,7 +63,6 @@ public class Erasable : MonoBehaviour
         end.y = Mathf.Clamp(Mathf.Max(p.y, lastPos.y) + eraserSize, 0, h);
         Vector2 dir = p - lastPos;
 
-        var m_Colors = _texture.GetRawTextureData<Color32>();
         for (int x = start.x; x < end.x; x++)
         {
             for (int y = start.y; y < end.y; y++)
@@ -71,12 +77,22 @@ public class Erasable : MonoBehaviour
                 }
                 if ((pixel - linePos).sqrMagnitude <= eraserSize * eraserSize)
                 {
-                    m_Colors[x + y * w] = _transparent;
+                    if (_colors[x + y * w].a != 0)
+                    {
+                        pixelsLeft--;
+                        _colors[x + y * w] = _transparent;
+                    }
                 }
             }
         }
         lastPos = p;
         _texture.Apply();
+
+        if (pixelsLeft <= 0)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject, 0.5f);
+        }
     }
 
     // https://toqoz.svbtle.com/finding-sprite-uv-texture-coordinates-in-unity
