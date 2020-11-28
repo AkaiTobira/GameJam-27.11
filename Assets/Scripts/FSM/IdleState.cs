@@ -6,7 +6,6 @@ public class IdleState : BaseState, IState
 {
     public IdleState(GameObject gameObject) : base(gameObject){}
     public void OnEnter(){
-        //TODO set animation to Idle
     }
     public void OnExit(){}
     public override void HandleInput(){
