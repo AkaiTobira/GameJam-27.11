@@ -37,6 +37,10 @@ public class MainMenu : MonoBehaviour
     }
     public void ExitButton()
     {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.ExitPlaymode();
+#else
         Application.Quit();
+#endif
     }
 }
