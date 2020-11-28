@@ -6,7 +6,6 @@ public class MoveState : BaseState, IState
 {
     public MoveState(GameObject gameObject) : base(gameObject){}
     public void OnEnter(){
-        PlayerAnimator.Instance.UpdateSide((int)Input.GetAxisRaw("Horizontal"));
         PlayerDetector.Instance.Move((int)Input.GetAxisRaw("Horizontal"));
         PlayerAnimator.AnimatorInstance.SetBool("Moving", true);
     }
@@ -21,7 +20,9 @@ public class MoveState : BaseState, IState
             _stateMachine.ChangeToState( new JumpState(_gameObject));
         }
     }
-    public override void ProcessGraphics(){}
+    public override void ProcessGraphics(){
+        PlayerAnimator.Instance.UpdateSide((int)Input.GetAxisRaw("Horizontal"));
+    }
     public override void ProcessPhysics(){
         PlayerDetector.Instance.Move((int)Input.GetAxisRaw("Horizontal"));
 

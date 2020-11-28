@@ -42,6 +42,7 @@ public class JumpState : BaseState, IState
         PlayerAnimator.AnimatorInstance.SetBool("Moving", PlayerInput.isLeftHold() || PlayerInput.isRightHold());
         
     }
+    
     public override void ProcessPhysics(){
         PlayerDetector.Instance.Move((int)Input.GetAxisRaw("Horizontal"));
         if( PlayerDetector.Instance.isOnGround( ) && !accelerateJumpforce){

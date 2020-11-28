@@ -593,6 +593,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 3301518758590497206, guid: f1828ed65ddf92744bade76d78ea8c20,
+        type: 3}
+      propertyPath: speed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3301518758590497207, guid: f1828ed65ddf92744bade76d78ea8c20,
         type: 3}
       propertyPath: m_LocalPosition.x
