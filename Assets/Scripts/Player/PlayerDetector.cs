@@ -82,11 +82,7 @@ public class PlayerDetector : MonoBehaviour
         RaycastHit2D ssss = Physics2D.Raycast(bottomCircle.position, Vector2.down, groundCheckRadius, whatIsGround);
         if( ssss ) {
             if( ssss.collider.tag == "Movable"){
-               // _rigidBody.velocity += ssss.collider.transform.GetComponent<MovingPlatform>().MoveSpeed ;
-                
                 transform.parent = ssss.collider.transform;
-
-             //   transform.Translate( ssss.collider.transform.GetComponent<MovingPlatform>().MoveSpeed );
             }
         }else{
             transform.parent = Player.Instance.transform;
