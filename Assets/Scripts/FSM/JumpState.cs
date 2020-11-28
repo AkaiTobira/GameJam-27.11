@@ -30,7 +30,8 @@ public class JumpState : BaseState, IState
 
 
         PlayerDetector.Instance.Move((int)Input.GetAxisRaw("Horizontal"));
-        if( PlayerDetector.Instance.CheckGround( ) && !accelerateJumpforce){
+        if( PlayerDetector.Instance.isOnGround( ) && !accelerateJumpforce){
+            CameraShake.Instance.TriggerShake(0.1f);
             _stateMachine.ChangeToState( new IdleState(_gameObject));
         }
 
