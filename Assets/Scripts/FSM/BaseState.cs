@@ -5,12 +5,12 @@ using UnityEngine;
 
 public abstract class BaseState
 {
-    protected GameObject _gameObject;
+    protected Entity _entity;
     protected FSM _stateMachine;
     
-    public BaseState(GameObject gameObject)
+    public BaseState(Entity entity)
     {
-        _gameObject = gameObject;
+        _entity = entity;
         
     }
     public void SetFSM(FSM stateMachine)

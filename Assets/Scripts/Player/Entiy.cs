@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour {
 
+    [SerializeField] public AnimatorExtended AnimatorExt;
+    [SerializeField] public UnitDetector Detector;
+
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _jumpHoldTime;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveState : BaseState, IState
 {
-    public MoveState(GameObject gameObject) : base(gameObject){}
+    public MoveState(Entity gameObject) : base(gameObject){}
     public void OnEnter(){
         PlayerDetector.Instance.Move((int)Input.GetAxisRaw("Horizontal"));
         PlayerAnimator.AnimatorInstance.SetBool("Moving", true);
@@ -15,9 +15,9 @@ public class MoveState : BaseState, IState
     }
     public override void HandleInput(){
         if(!PlayerInput.isLeftHold() && !PlayerInput.isRightHold()){
-            _stateMachine.ChangeToState( new IdleState(_gameObject));
+            _stateMachine.ChangeToState( new IdleState(_entity));
         }else if( PlayerInput.isJumpPressed()){
-            _stateMachine.ChangeToState( new JumpState(_gameObject));
+            _stateMachine.ChangeToState( new JumpState(_entity));
         }
     }
     public override void ProcessGraphics(){
