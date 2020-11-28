@@ -24,5 +24,6 @@ public class Level : MonoBehaviour
         PlayerDetector.Instance.transform.position = _playerSpawn.position;
         Camera_Follow.Instance.SetNewFollowable(_cameraPlaceholder.transform);
         Camera_Follow.Instance.SetZoom(_cameraPlaceholder.orthographicSize);
+        gameObject.SetActive(true);
     }
 }

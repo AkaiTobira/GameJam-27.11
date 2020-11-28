@@ -66,6 +66,10 @@ public class LevelManager : MonoBehaviour
             if (sceneRef.ScenePath == scene.ScenePath)
             {
                 _levels[i] = level;
+                if (i == _currentLevelIndex)
+                {
+                    level.gameObject.SetActive(false);
+                }
             }
 
             if (_levels[i] != null)
@@ -80,13 +84,16 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    [System.Obsolete]
     public void ReloadLevel()
     {
+        Camera_Follow.Instance.SetNewFollowable(Camera_Follow.Instance.transform);
         var levelScene = _levelScenes[_currentLevelIndex];
         var scene = SceneManager.GetSceneByPath(levelScene.ScenePath);
-        SceneManager.LoadScene(levelScene.ScenePath, LoadSceneMode.Additive);
-        SceneManager.UnloadScene(scene);
+        var a = SceneManager.UnloadSceneAsync(scene);
+        a.completed += (ao) =>
+        {
+            SceneManager.LoadScene(levelScene.ScenePath, LoadSceneMode.Additive);
+        };
     }
 
     public void NextLevel()
