@@ -626,6 +626,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8625719594224755170, guid: 3c5fd41d1e7d6314db8db76b0761b6c6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8625719594224755180, guid: 3c5fd41d1e7d6314db8db76b0761b6c6,
         type: 3}
       propertyPath: m_RootOrder
@@ -1255,6 +1260,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TriangleEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625719594224755170, guid: 3c5fd41d1e7d6314db8db76b0761b6c6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8625719594224755180, guid: 3c5fd41d1e7d6314db8db76b0761b6c6,
         type: 3}
