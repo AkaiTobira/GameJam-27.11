@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyIdle : BaseState, IState
 {
-    float timer = 2.0f;
+    float timer = 1.2f;
 
     public EnemyIdle(Entity gameObject) : base(gameObject){}
     public void OnEnter(){
-        timer = 2.0f;
+        timer = 1.2f;
     }
     public void OnExit(){}
     public override void HandleInput(){
@@ -16,7 +16,6 @@ public class EnemyIdle : BaseState, IState
         if( timer < 0 ){
             _stateMachine.ChangeToState( new EnemyWalking(_entity));
         }
-        
     }
     public override void ProcessGraphics(){
         _entity.AnimatorExt.SetBool("OnGround", true);

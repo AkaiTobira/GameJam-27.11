@@ -15,10 +15,10 @@ public class WallDetector : MonoBehaviour
     void Update() {
         isNearWall  = Physics2D.OverlapCircle(frontCircle.position, WallCheckRadius, whatIsGround);
         isEdgeClear = Physics2D.Raycast( frontCircle.position , Vector2.down, FloorCheckRadius );
+
         DebugDrawHelper.DrawStar(frontCircle.position, WallCheckRadius);
         Debug.DrawLine(frontCircle.position, frontCircle.position + Vector3.down * FloorCheckRadius, Color.green );
     }
-
 
     public bool CheckEdge(){
         return isEdgeClear;
@@ -28,5 +28,7 @@ public class WallDetector : MonoBehaviour
     {
         return isNearWall;
     }
+
+
 
 }

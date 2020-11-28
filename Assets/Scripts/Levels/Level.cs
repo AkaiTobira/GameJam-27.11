@@ -22,7 +22,7 @@ public class Level : MonoBehaviour
         PlayerAnimator.Instance.UpdateSide(1);
         PlayerAnimator.Instance.transform.position = _playerSpawn.position;
         PlayerDetector.Instance.transform.position = _playerSpawn.position;
-        Camera.main.GetComponent<Camera_Follow>().SetNewFollowable(_cameraPlaceholder.transform);
-        Camera.main.GetComponent<Camera_Follow>().SetZoom(_cameraPlaceholder.orthographicSize);
+        Camera_Follow.Instance.SetNewFollowable(_cameraPlaceholder.transform);
+        Camera_Follow.Instance.SetZoom(_cameraPlaceholder.orthographicSize);
     }
 }
