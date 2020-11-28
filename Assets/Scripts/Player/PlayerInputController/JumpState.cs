@@ -40,7 +40,9 @@ public class JumpState : BaseState, IState
     public override void ProcessGraphics(){
         PlayerAnimator.AnimatorInstance.SetFloat("JumpDirection", Mathf.Sign(_playerRB.velocity.y));
         PlayerAnimator.AnimatorInstance.SetBool("Moving", PlayerInput.isLeftHold() || PlayerInput.isRightHold());
-        
+        if( _playerRB.velocity.y > 0 ){
+            PlayerAnimator.AnimatorInstance.SetBool("OnGround", false);
+        }
     }
     
     public override void ProcessPhysics(){

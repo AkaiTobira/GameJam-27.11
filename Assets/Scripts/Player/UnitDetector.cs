@@ -12,6 +12,14 @@ public class UnitDetector : MonoBehaviour
 
     [SerializeField] private WallDetector _wallDetector;
 
+    [SerializeField] private VisionBox _visionBox;
+
+
+
+    public bool seePlayer(){
+        return (bool)_visionBox?.IsPlayerNear;
+    }
+
 
     public bool isNearWall(){
         return (bool)_wallDetector?.CheckWall();
@@ -29,11 +37,14 @@ public class UnitDetector : MonoBehaviour
         capsuleColliderSize = _cc.size;
     }
 
-    public void Move( float  direciton ){
-
-        xInput        =(int) direciton;
+    public void Move(){
         CheckGround();
         ApplyMovement();
+    }
+
+    public void Move( float direciton ){
+        xInput        =(int) direciton;
+        Move();
     }
 
     bool canJump = true;
