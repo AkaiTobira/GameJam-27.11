@@ -16,14 +16,14 @@ public class JumpState : BaseState, IState
         accelerateJumpforce = true;
         _playerRB = PlayerDetector.Instance.GetComponent<Rigidbody2D>();
 
-        PlayerAnimator.Instance.SetBool("Jumping", true);
-        PlayerAnimator.Instance.PAnimator.SetBool("OnGround", false);
+        PlayerAnimator.AnimatorInstance.SetBool("Jumping", true);
+        PlayerAnimator.AnimatorInstance.SetBool("OnGround", false);
     }
-    
+
     public void OnExit()
     {
-        PlayerAnimator.Instance.PAnimator.SetBool("OnGround", true);
-        PlayerAnimator.Instance.SetBool("Jumping", false);
+        PlayerAnimator.AnimatorInstance.SetBool("OnGround", true);
+        PlayerAnimator.AnimatorInstance.SetBool("Jumping", false);
     }
 
     public override void HandleInput(){
@@ -38,8 +38,8 @@ public class JumpState : BaseState, IState
     }
 
     public override void ProcessGraphics(){
-        PlayerAnimator.Instance.PAnimator.SetFloat("JumpDirection", Mathf.Sign(_playerRB.velocity.y));
-        PlayerAnimator.Instance.SetBool("Moving", PlayerInput.isLeftHold() || PlayerInput.isRightHold());
+        PlayerAnimator.AnimatorInstance.SetFloat("JumpDirection", Mathf.Sign(_playerRB.velocity.y));
+        PlayerAnimator.AnimatorInstance.SetBool("Moving", PlayerInput.isLeftHold() || PlayerInput.isRightHold());
         
     }
     public override void ProcessPhysics(){

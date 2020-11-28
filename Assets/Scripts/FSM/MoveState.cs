@@ -8,11 +8,11 @@ public class MoveState : BaseState, IState
     public void OnEnter(){
         PlayerAnimator.Instance.UpdateSide((int)Input.GetAxisRaw("Horizontal"));
         PlayerDetector.Instance.Move((int)Input.GetAxisRaw("Horizontal"));
-        PlayerAnimator.Instance.SetBool("Moving", true);
+        PlayerAnimator.AnimatorInstance.SetBool("Moving", true);
     }
     public void OnExit()
     {
-        PlayerAnimator.Instance.SetBool("Moving", false);
+        PlayerAnimator.AnimatorInstance.SetBool("Moving", false);
     }
     public override void HandleInput(){
         if(!PlayerInput.isLeftHold() && !PlayerInput.isRightHold()){
