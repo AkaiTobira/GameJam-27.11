@@ -27,6 +27,14 @@ public class PlayerAnimator : MonoBehaviour
         transform.localScale = lScale;
     }
 
+    public void SetBool(string name, bool value)
+    {
+        if (PAnimator)
+        {
+            PAnimator.SetBool(name, value);
+        }
+    }
+
     void Update()
     {
         if( EnableFollowing ){

@@ -48,10 +48,18 @@ public class PlayerDetector : MonoBehaviour
      //   _rigidBody.AddForce(new Vector2( 0, Player.Instance.JumpHoldForce * multipler), ForceMode2D.Force);
     }
 
+    void Update() {
+        CheckGround();
+    }
+
+    public bool isOnGround(){
+        return isGrounded;
+    }
+
     [SerializeField] Transform bottomCircle;
     [SerializeField] float groundCheckRadius;
 
-    public bool CheckGround()
+    public void CheckGround()
     {
         isGrounded = Physics2D.OverlapCircle(bottomCircle.position, groundCheckRadius, whatIsGround);
 
@@ -67,7 +75,15 @@ public class PlayerDetector : MonoBehaviour
             canJump = true;
         }
 
-        return isGrounded;
+        CheckForMovingPlatforms();
+    }
+
+    private void CheckForMovingPlatforms(){
+        RaycastHit2D ssss = Physics2D.Raycast(bottomCircle.position, Vector2.down, groundCheckRadius, whatIsGround);
+        if( ssss ) {
+            if( ssss.collider.tag == "Movable")
+            transform.Translate( ssss.collider.transform.GetComponent<MovingPlatform>().MoveSpeed );
+        }
     }
 
 

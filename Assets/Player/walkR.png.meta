@@ -1,0 +1,341 @@
+fileFormatVersion: 2
+guid: f67d8f7d0af31f74cbd9cf048eb5c502
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2526717224781515757
+    second: ludzik_0
+  - first:
+      213: -336825549978164089
+    second: ludzik_1
+  - first:
+      213: 4882614572850540689
+    second: ludzik_2
+  - first:
+      213: 810139297899858038
+    second: ludzik_3
+  - first:
+      213: 7240778386447804545
+    second: ludzik_4
+  - first:
+      213: -6930298799913103522
+    second: ludzik_5
+  - first:
+      213: -3598156718174406722
+    second: ludzik_6
+  - first:
+      213: -1922684359236977391
+    second: ludzik_7
+  - first:
+      213: -2749701713339755764
+    second: ludzik_8
+  - first:
+      213: -5242756314569395942
+    second: ludzik_9
+  - first:
+      213: 7536952628411188228
+    second: ludzik_10
+  - first:
+      213: -6262330424813497738
+    second: ludzik_11
+  - first:
+      213: 5859808058867181825
+    second: ludzik_12
+  - first:
+      213: 6179668881221084043
+    second: ludzik_13
+  - first:
+      213: -5592234182279529997
+    second: ludzik_14
+  - first:
+      213: -3822268314491955366
+    second: ludzik_15
+  - first:
+      213: -413949990875013120
+    second: ludzik_16
+  - first:
+      213: 9220790858453029250
+    second: ludzik_17
+  - first:
+      213: -3873869042537070174
+    second: ludzik_18
+  - first:
+      213: -4953608590266804855
+    second: ludzik_19
+  - first:
+      213: -6628227416184154533
+    second: ludzik_20
+  - first:
+      213: -3462981158709415235
+    second: ludzik_21
+  - first:
+      213: 7982639967379304609
+    second: ludzik_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ludzik_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 84
+        width: 734
+        height: 1076
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deb86f6cde3b01320800000000000000
+      internalID: 2526717224781515757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ludzik_1
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 84
+        width: 632
+        height: 1008
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 784a64662fa535bf0800000000000000
+      internalID: -336825549978164089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ludzik_2
+      rect:
+        serializedVersion: 2
+        x: 1943
+        y: 87
+        width: 471
+        height: 1070
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 190f6e5b51882c340800000000000000
+      internalID: 4882614572850540689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ludzik_4
+      rect:
+        serializedVersion: 2
+        x: 2835
+        y: 77
+        width: 459
+        height: 1140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1882c8544996c7460800000000000000
+      internalID: 7240778386447804545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ludzik_6
+      rect:
+        serializedVersion: 2
+        x: 3627
+        y: 81
+        width: 621
+        height: 1069
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb777075787c01ec0800000000000000
+      internalID: -3598156718174406722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ludzik_7
+      rect:
+        serializedVersion: 2
+        x: 4577
+        y: 92
+        width: 521
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11dfa7813c04155e0800000000000000
+      internalID: -1922684359236977391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ludzik_8
+      rect:
+        serializedVersion: 2
+        x: 5471
+        y: 70
+        width: 456
+        height: 1066
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c03d91a3cd817d9d0800000000000000
+      internalID: -2749701713339755764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ludzik_9
+      rect:
+        serializedVersion: 2
+        x: 6310
+        y: 74
+        width: 507
+        height: 1143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a11b722c8ecfd37b0800000000000000
+      internalID: -5242756314569395942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
