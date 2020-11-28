@@ -15,6 +15,8 @@ public class IdleState : BaseState, IState
             _stateMachine.ChangeToState( new MoveState(_gameObject));
         }
     }
-    public override void ProcessGraphics(){}
+    public override void ProcessGraphics(){
+        PlayerAnimator.AnimatorInstance.SetBool("OnGround", true);
+    }
     public override void ProcessPhysics(){}
 }
