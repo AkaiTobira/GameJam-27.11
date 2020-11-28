@@ -16,7 +16,7 @@ public class MoveState : BaseState, IState
     public override void HandleInput(){
         if(!PlayerInput.isLeftHold() && !PlayerInput.isRightHold()){
             _stateMachine.ChangeToState( new IdleState(_entity));
-        }else if( PlayerInput.isJumpPressed()){
+        }else if( PlayerInput.isJumpPressed()  && PlayerJumpCounter.CanJump()){
             _stateMachine.ChangeToState( new JumpState(_entity));
         }
     }

@@ -20,7 +20,7 @@ public class Player : Entity, IListenToEvents
 
     public void OnGameEvent( GameEvent gameEvent){
         if( isDead ) return;
-        
+
         switch( gameEvent.type ){
             case GameEventType.PlayerGetsHit:
                 if( reactionToGetHitTimer < 0){
@@ -44,6 +44,7 @@ public class Player : Entity, IListenToEvents
     void Update() {
         playerController.Update();
         reactionToGetHitTimer -= Time.deltaTime;
+        PlayerJumpCounter.Update();
     }
 
     void FixedUpdate() {

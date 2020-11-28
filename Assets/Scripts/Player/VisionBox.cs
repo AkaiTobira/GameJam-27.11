@@ -11,7 +11,6 @@ class VisionBox: MonoBehaviour {
 
 
     void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log(other.tag + " " + other.name);
         if( other?.tag == "Player"){
             _isPlayerNear = true;
         }
