@@ -166,7 +166,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _detector: {fileID: 8189899327363976223}
   _smoothTime: 0.05
-  PAnimator: {fileID: 8189899326538099575}
 --- !u!1 &8189899327092068222
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a9c22afe13800245ae5f582209aae8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _entity: {fileID: 8189899326482696763}
   bottomCircle: {fileID: 8189899327092068217}
   groundCheckRadius: 0.1
   whatIsGround:
