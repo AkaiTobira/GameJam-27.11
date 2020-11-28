@@ -5,40 +5,77 @@ using UnityEngine;
 public class RubberEraser : MonoBehaviour
 {
     public int erSize;
-    public bool Drawing = false;
+    public bool drawing = false;
+    public int updateTextureEachFrame;
 
-    private GameObject lastTouched;
+    private Collider2D _lastTouched;
+    private int _frameCount = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        _frameCount = ++_frameCount % updateTextureEachFrame;
         if (Input.GetMouseButton(0))
         {
-            var hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (hit.collider == null) return;
+            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var otherCollider = Physics2D.OverlapCircle(mousePos, erSize / 100);
+            if (otherCollider == null)
+            {
+                if (_lastTouched != null)
+                {
+                    RegenerateCollider(_lastTouched);
+                    _lastTouched = null;
+                }
+                return;
+            };
 
-            var erasable = hit.collider.GetComponent<Erasable>();
-            if (erasable == null) return;
+            var erasable = otherCollider.GetComponent<Erasable>();
+            if (erasable == null)
+            {
+                if (_lastTouched != null)
+                {
+                    RegenerateCollider(_lastTouched);
+                    _lastTouched = null;
+                }
+                return;
+            }
 
-            erasable.UpdateTexture(hit.point);
-            Drawing = true;
-            lastTouched = hit.collider.gameObject;
+            if (_frameCount == 0)
+            {
+                erasable.UpdateTexture(mousePos, !drawing || _lastTouched != otherCollider);
+
+                drawing = true;
+
+                if (_lastTouched != null && _lastTouched != otherCollider)
+                {
+                    RegenerateCollider(_lastTouched);
+                }
+
+                _lastTouched = otherCollider;
+            }
         }
         else
         {
-            if (lastTouched != null && Drawing)
+            if (_lastTouched != null && drawing)
             {
-                Destroy(lastTouched.GetComponent<PolygonCollider2D>());
-                lastTouched.AddComponent<PolygonCollider2D>();
+                RegenerateCollider(_lastTouched);
+                _lastTouched = null;
             }
-            Drawing = false;
-           
+            drawing = false;
+
         }
+    }
+
+    void RegenerateCollider(Collider2D collider)
+    {
+        var gameObject = collider.gameObject;
+        Destroy(gameObject.GetComponent<PolygonCollider2D>());
+        gameObject.AddComponent<PolygonCollider2D>();
     }
 }
