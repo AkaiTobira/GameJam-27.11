@@ -12,11 +12,16 @@ public class JumpState : BaseState, IState
     public void OnEnter(){
         PlayerDetector.Instance.Jump();
         accelerateJumpforce = true;
-    }
-    public void OnExit(){}
-    public override void HandleInput(){
 
-        if( accelerateJumpforce ){
+        PlayerAnimator.Instance.SetBool("Jumping", true);
+    }
+    public void OnExit()
+    {
+        PlayerAnimator.Instance.SetBool("Jumping", false);
+    }
+    public override void HandleInput(){
+        PlayerAnimator.Instance.UpdateSide((int)Input.GetAxisRaw("Horizontal"));
+        if ( accelerateJumpforce ){
             PlayerDetector.Instance.AddJumpForce();
             if( !PlayerInput.isJumpHold() || elapsedTime >= Player.Instance.JumpHoldTime){
                 accelerateJumpforce = false;
