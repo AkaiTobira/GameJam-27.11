@@ -12,7 +12,7 @@ public class Player : Entity
             Instance = this;
         }
 
-        playerController = new FSM(new IdleState(gameObject));
+        playerController = new FSM(new IdleState(this));
     }
 
     void Update() {
