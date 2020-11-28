@@ -25,5 +25,4 @@ public class Entity : MonoBehaviour {
     public float MovementSpeed{
         get { return _movementSpeed;}
     }
-
 }

@@ -5,7 +5,7 @@ public class Enemy : Entity {
     private FSM AI;
 
     void Start() {
-        AI = new FSM(new IdleState(this));
+        AI = new FSM(new EnemyIdle(this));
     }
 
     void Update() {

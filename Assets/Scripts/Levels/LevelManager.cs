@@ -80,6 +80,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    [System.Obsolete]
     public void ReloadLevel()
     {
         var levelScene = _levelScenes[_currentLevelIndex];

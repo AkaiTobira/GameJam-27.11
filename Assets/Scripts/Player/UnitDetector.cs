@@ -10,6 +10,17 @@ public class UnitDetector : MonoBehaviour
     private Transform _baseParent;
     [SerializeField] private Entity _entity;
 
+    [SerializeField] private WallDetector _wallDetector;
+
+
+    public bool isNearWall(){
+        return (bool)_wallDetector?.CheckWall();
+    }
+
+    public bool isEdgeClose(){
+        return (bool)_wallDetector?.CheckEdge();
+    }
+
     protected virtual void Start() {
         _rigidBody = GetComponent<Rigidbody2D>();
         _cc = GetComponent<CapsuleCollider2D>();
@@ -33,18 +44,13 @@ public class UnitDetector : MonoBehaviour
         {
             canJump = false;
             isJumping = true;
-            _rigidBody.velocity = new Vector2();
-            
             _rigidBody.velocity = new Vector2( 0, _entity.JumpForce);
-            //_rigidBody.AddForce(new Vector2( 0, Player.Instance.JumpForce), ForceMode2D.Impulse);
         }
     }   
 
     public void AddJumpForce()
     {
-        //Debug.Log("CALLED");
         _rigidBody.velocity = new Vector2( _rigidBody.velocity.x, _entity.JumpForce);
-     //   _rigidBody.AddForce(new Vector2( 0, Player.Instance.JumpHoldForce * multipler), ForceMode2D.Force);
     }
 
     void Update() {
@@ -161,9 +167,6 @@ public class UnitDetector : MonoBehaviour
 
     bool canWalkOnSlope= true;
     float xInput;
-    float fullFriction;
-    float noFriction;
-
     private void SlopeCheckVertical(Vector2 checkPos)
     {      
         RaycastHit2D hit = Physics2D.Raycast(checkPos, Vector2.down, slopeCheckDistance, whatIsGround);
@@ -183,13 +186,5 @@ public class UnitDetector : MonoBehaviour
         canWalkOnSlope = !( _slopeInfo.slopeDownAngle > _slopeInfo.maxSlopeAngle || 
                             _slopeInfo.slopeSideAngle > _slopeInfo.maxSlopeAngle );
 
-    //    if (isOnSlope && canWalkOnSlope && xInput == 0.0f)
-     //   {
-     //       rb.sharedMaterial = fullFriction;
-    //    }
-     //   else
-     //   {
-     //       rb.sharedMaterial = noFriction;
-    //    }
     }
 }

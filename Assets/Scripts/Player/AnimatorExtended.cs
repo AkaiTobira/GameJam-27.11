@@ -10,6 +10,7 @@ public class AnimatorExtended : MonoBehaviour{
     private Vector3 _animationVel;
 
     protected virtual void Start() {
+        _animator = GetComponent<Animator>();
     }
 
     bool EnableFollowing{ get; set; } = true;
