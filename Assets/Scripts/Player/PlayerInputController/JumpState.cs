@@ -10,7 +10,7 @@ public class JumpState : BaseState, IState
 
     Rigidbody2D _playerRB;
 
-    public JumpState(GameObject gameObject) : base(gameObject){}
+    public JumpState(Entity gameObject) : base(gameObject){}
     public void OnEnter(){
         PlayerDetector.Instance.Jump();
         accelerateJumpforce = true;
@@ -42,11 +42,12 @@ public class JumpState : BaseState, IState
         PlayerAnimator.AnimatorInstance.SetBool("Moving", PlayerInput.isLeftHold() || PlayerInput.isRightHold());
         
     }
+    
     public override void ProcessPhysics(){
         PlayerDetector.Instance.Move((int)Input.GetAxisRaw("Horizontal"));
         if( PlayerDetector.Instance.isOnGround( ) && !accelerateJumpforce){
             CameraShake.Instance.TriggerShake(0.1f);
-            _stateMachine.ChangeToState( new IdleState(_gameObject));
+            _stateMachine.ChangeToState( new IdleState(_entity));
         }
     }
 }

@@ -13,10 +13,13 @@ public class MovingPlatform : MonoBehaviour
 
     private int indexOfNext = 0;
     private Vector2 startingPos;
+
+    private Rigidbody2D _rigidBody;
     
     void Start()
     {
         startingPos = transform.position;
+        _rigidBody = GetComponent<Rigidbody2D>();
     }
 
     private Vector2 _movingSpeed;
@@ -40,6 +43,7 @@ public class MovingPlatform : MonoBehaviour
         if( distnace * Time.deltaTime - speed * Time.deltaTime < 0  ){
             _movingSpeed = direction * distnace * Time.deltaTime;
             transform.Translate( direction * distnace * Time.deltaTime);
+            
             if( distnace < 0.2f) indexOfNext = (indexOfNext + 1)% RelativePoints.Count;
         }else{
             _movingSpeed = direction * speed * Time.deltaTime;
