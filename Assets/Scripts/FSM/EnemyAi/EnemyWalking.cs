@@ -11,6 +11,7 @@ public class EnemyWalking : BaseState, IState
     public void OnEnter(){
         direction = ( direction == 0) ? -1 : 1;
         _entity.AnimatorExt.UpdateSide(direction);
+        _entity.AnimatorExt.SetBool("isMoving", true);
     }
     public void OnExit(){}
     public override void HandleInput(){

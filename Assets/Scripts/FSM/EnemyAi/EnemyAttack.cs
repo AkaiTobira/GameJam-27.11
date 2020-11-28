@@ -11,6 +11,7 @@ public class EnemyAttack : BaseState, IState
 
     public EnemyAttack(Entity gameObject) : base(gameObject){}
     public void OnEnter(){
+        _entity.AnimatorExt.SetBool("isMoving", false);
     }
     public void OnExit(){
         _entity.AnimatorExt.SetBool("isAttack", false);

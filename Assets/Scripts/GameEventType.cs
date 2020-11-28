@@ -1,2 +1,5 @@
 
-public enum GameEventType{};
+public enum GameEventType{
+    PlayerGetsHit,
+    LoseHp,
+};

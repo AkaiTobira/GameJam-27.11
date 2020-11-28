@@ -9,6 +9,7 @@ public class EnemyIdle : BaseState, IState
     public EnemyIdle(Entity gameObject) : base(gameObject){}
     public void OnEnter(){
         timer = 1.2f;
+        _entity.AnimatorExt.SetBool("isMoving", false);
     }
     public void OnExit(){}
     public override void HandleInput(){
