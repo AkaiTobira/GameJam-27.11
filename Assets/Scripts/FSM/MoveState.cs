@@ -8,6 +8,7 @@ public class MoveState : BaseState, IState
     public void OnEnter(){
         //TODO set animation to move
         PlayerAnimator.Instance.UpdateSide((int)Input.GetAxisRaw("Horizontal"));
+        PlayerDetector.Instance.Move((int)Input.GetAxisRaw("Horizontal"));
     }
     public void OnExit(){}
     public override void HandleInput(){

@@ -10,10 +10,10 @@ public class IdleState : BaseState, IState
     }
     public void OnExit(){}
     public override void HandleInput(){
-        if( PlayerInput.isLeftHold() || PlayerInput.isRightHold() ){
-            _stateMachine.ChangeToState( new MoveState(_gameObject));
-        }else if( PlayerInput.isJumpPressed()){
+         if( PlayerInput.isJumpPressed()){
             _stateMachine.ChangeToState( new JumpState(_gameObject));
+        }else  if( PlayerInput.isLeftHold() || PlayerInput.isRightHold() ){
+            _stateMachine.ChangeToState( new MoveState(_gameObject));
         }
     }
     public override void ProcessGraphics(){}
