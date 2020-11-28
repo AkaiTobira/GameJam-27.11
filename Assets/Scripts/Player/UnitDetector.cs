@@ -66,7 +66,7 @@ public class UnitDetector : MonoBehaviour
         _rigidBody.velocity = new Vector2( _rigidBody.velocity.x, _entity.JumpForce);
     }
 
-    void Update() {
+    protected virtual void Update() {
         CheckGround();
         _rigidBody.sharedMaterial =  (isGrounded || _slopeInfo.isOnSlope) ? Friction : noFriction;
     }
@@ -120,7 +120,7 @@ public class UnitDetector : MonoBehaviour
 
     private float slopeCheckDistance = 5f;
     [SerializeField] private LayerMask whatIsGround;
-    bool isGrounded = true;
+    protected bool isGrounded = true;
     bool isJumping = false;
    // Vector2 newVelocity;
 

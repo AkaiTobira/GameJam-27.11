@@ -9,7 +9,7 @@ public class IdleState : BaseState, IState
     }
     public void OnExit(){}
     public override void HandleInput(){
-         if( PlayerInput.isJumpPressed()){
+         if( PlayerInput.isJumpPressed() && PlayerJumpCounter.CanJump()){
             _stateMachine.ChangeToState( new JumpState(_entity));
         }else  if( PlayerInput.isLeftHold() || PlayerInput.isRightHold() ){
             _stateMachine.ChangeToState( new MoveState(_entity));

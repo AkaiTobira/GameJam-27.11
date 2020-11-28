@@ -13,4 +13,11 @@ public class PlayerDetector : UnitDetector
 
         base.Start();
     }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if( isGrounded ) PlayerJumpCounter.HitGround();
+    }
 }
