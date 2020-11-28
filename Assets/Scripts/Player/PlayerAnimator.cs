@@ -6,14 +6,15 @@ public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField] private Transform _detector;
     [SerializeField] private float _smoothTime;
-    [SerializeField] public Animator PAnimator;
 
     public static PlayerAnimator Instance;
+    public static Animator AnimatorInstance;
     private Vector3 _animationVel;
 
     void Start() {
         if( Instance == null){
             Instance = this;
+            AnimatorInstance = GetComponent<Animator>();
         }
     }
 
@@ -25,14 +26,6 @@ public class PlayerAnimator : MonoBehaviour
         Vector3 lScale = transform.localScale;
         lScale.x       = Mathf.Abs( lScale.x) * side;
         transform.localScale = lScale;
-    }
-
-    public void SetBool(string name, bool value)
-    {
-        if (PAnimator)
-        {
-            PAnimator.SetBool(name, value);
-        }
     }
 
     void Update()

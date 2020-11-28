@@ -8,17 +8,24 @@ public class JumpState : BaseState, IState
     bool accelerateJumpforce = true;
     float elapsedTime = 0;
 
+    Rigidbody2D _playerRB;
+
     public JumpState(GameObject gameObject) : base(gameObject){}
     public void OnEnter(){
         PlayerDetector.Instance.Jump();
         accelerateJumpforce = true;
+        _playerRB = PlayerDetector.Instance.GetComponent<Rigidbody2D>();
 
-        PlayerAnimator.Instance.SetBool("Jumping", true);
+        PlayerAnimator.AnimatorInstance.SetBool("Jumping", true);
+        PlayerAnimator.AnimatorInstance.SetBool("OnGround", false);
     }
+
     public void OnExit()
     {
-        PlayerAnimator.Instance.SetBool("Jumping", false);
+        PlayerAnimator.AnimatorInstance.SetBool("OnGround", true);
+        PlayerAnimator.AnimatorInstance.SetBool("Jumping", false);
     }
+
     public override void HandleInput(){
         PlayerAnimator.Instance.UpdateSide((int)Input.GetAxisRaw("Horizontal"));
         if ( accelerateJumpforce ){
@@ -30,15 +37,16 @@ public class JumpState : BaseState, IState
         }
     }
 
-    public override void ProcessGraphics(){}
+    public override void ProcessGraphics(){
+        PlayerAnimator.AnimatorInstance.SetFloat("JumpDirection", Mathf.Sign(_playerRB.velocity.y));
+        PlayerAnimator.AnimatorInstance.SetBool("Moving", PlayerInput.isLeftHold() || PlayerInput.isRightHold());
+        
+    }
     public override void ProcessPhysics(){
-
-
         PlayerDetector.Instance.Move((int)Input.GetAxisRaw("Horizontal"));
         if( PlayerDetector.Instance.isOnGround( ) && !accelerateJumpforce){
             CameraShake.Instance.TriggerShake(0.1f);
             _stateMachine.ChangeToState( new IdleState(_gameObject));
         }
-
     }
 }

@@ -7,6 +7,7 @@ public class Erasable : MonoBehaviour
     public Vector2Int lastPos;
 
     private Texture2D _texture;
+    private Sprite _sprite;
     private Color32 _transparent = new Color32(0, 0, 0, 0);
     private Collider2D _myCollider;
     private RubberEraser _rubberEraser;
@@ -27,25 +28,28 @@ public class Erasable : MonoBehaviour
         var data = originalTexture.GetRawTextureData();
         _texture.LoadRawTextureData(data);
         _texture.Apply();
-        spriteRenderer.sprite = Sprite.Create(_texture, spriteRenderer.sprite.rect, new Vector2(0.5f, 0.5f));
+        _sprite = Sprite.Create(_texture, spriteRenderer.sprite.rect, new Vector2(0.5f, 0.5f));
+        spriteRenderer.sprite = _sprite;
     }
 
     public void UpdateTexture(Vector2 hitPoint, bool resetLastPos = false)
     {
         if (_myCollider == null)
+        {
             _myCollider = gameObject.GetComponent<Collider2D>();
+        }
 
         int eraserSize = _rubberEraser.erSize;
         int w = _texture.width;
         int h = _texture.height;
-        var mousePos = hitPoint - (Vector2)_myCollider.bounds.min;
-        mousePos.x *= w / _myCollider.bounds.size.x;
-        mousePos.y *= h / _myCollider.bounds.size.y;
+        var mousePos = TextureSpaceCoord(hitPoint);
         Vector2Int p = new Vector2Int((int)mousePos.x, (int)mousePos.y);
         Vector2Int start = new Vector2Int();
         Vector2Int end = new Vector2Int();
         if (resetLastPos)
+        {
             lastPos = p;
+        }
         start.x = Mathf.Clamp(Mathf.Min(p.x, lastPos.x) - eraserSize, 0, w);
         start.y = Mathf.Clamp(Mathf.Min(p.y, lastPos.y) - eraserSize, 0, h);
         end.x = Mathf.Clamp(Mathf.Max(p.x, lastPos.x) + eraserSize, 0, w);
@@ -73,5 +77,21 @@ public class Erasable : MonoBehaviour
         }
         lastPos = p;
         _texture.Apply();
+    }
+
+    // https://toqoz.svbtle.com/finding-sprite-uv-texture-coordinates-in-unity
+    public Vector2 TextureSpaceCoord(Vector3 worldPos)
+    {
+        float ppu = _sprite.pixelsPerUnit;
+
+        // Local position on the sprite in pixels.
+        Vector2 localPos = transform.InverseTransformPoint(worldPos) * ppu;
+
+        // When the sprite is part of an atlas, the rect defines its offset on the texture.
+        // When the sprite is not part of an atlas, the rect is the same as the texture (x = 0, y = 0, width = tex.width, ...)
+        var texSpacePivot = new Vector2(_sprite.rect.x, _sprite.rect.y) + _sprite.pivot;
+        Vector2 texSpaceCoord = texSpacePivot + localPos;
+
+        return texSpaceCoord;
     }
 }
