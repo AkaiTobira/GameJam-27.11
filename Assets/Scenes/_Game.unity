@@ -573,8 +573,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelScenes:
-  - sceneAsset: {fileID: 102900000, guid: b68133591d724964890c4e72342791ff, type: 3}
-    scenePath: Assets/Scenes/Levels/Level01.unity
+  - sceneAsset: {fileID: 102900000, guid: 1bda10c63b3182647a284a739a96cb66, type: 3}
+    scenePath: Assets/Scenes/Levels/RedPassion/Level0.unity
   - sceneAsset: {fileID: 102900000, guid: 870b83cf2cb48ec40beda73378cdc92a, type: 3}
     scenePath: Assets/Scenes/Levels/Level02.unity
   - sceneAsset: {fileID: 102900000, guid: 790e7e27a0fe025449f336736d46cd3d, type: 3}
