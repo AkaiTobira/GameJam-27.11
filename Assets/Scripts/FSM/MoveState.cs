@@ -19,7 +19,7 @@ public class MoveState : BaseState, IState
     }
     public override void ProcessGraphics(){}
     public override void ProcessPhysics(){
-        PlayerDetector.Instance.Move((int)Input.GetAxisRaw("Horizontal") * new Vector2(3, 0) );
+        PlayerDetector.Instance.Move((int)Input.GetAxisRaw("Horizontal"));
 
     }
 }

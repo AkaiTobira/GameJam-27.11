@@ -403,9 +403,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 2
-  _jumpForce: 4
-  _jumpHoldForce: 5
-  _jumpHoldTime: 1
+  _jumpForce: 8
+  _jumpHoldTime: 0.3
+  _inAirMovementSpeed: 3
 --- !u!4 &1129009359
 Transform:
   m_ObjectHideFlags: 0

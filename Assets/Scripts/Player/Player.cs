@@ -10,13 +10,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float _movementSpeed;
     [SerializeField] private  float _jumpForce;
 
-    [SerializeField] private  float _jumpHoldForce;
-    
     [SerializeField] private  float _jumpHoldTime;
 
+    [SerializeField] private float _inAirMovementSpeed;
 
-    public float JumpHoldForce{
-        get { return _jumpHoldForce;}
+
+    public float InAirMovementSpeed{
+        get { return _inAirMovementSpeed;}
     }
 
     public float JumpHoldTime{

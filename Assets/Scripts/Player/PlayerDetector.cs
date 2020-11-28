@@ -19,9 +19,9 @@ public class PlayerDetector : MonoBehaviour
         capsuleColliderSize = _cc.size;
     }
 
-    public void Move( Vector2 move ){
+    public void Move( float  direciton ){
 
-        xInput        = Mathf.Sign(move.x);
+        xInput        =(int) direciton;
         CheckGround();
         ApplyMovement();
     }
@@ -35,13 +35,17 @@ public class PlayerDetector : MonoBehaviour
             canJump = false;
             isJumping = true;
             _rigidBody.velocity = new Vector2();
-            _rigidBody.AddForce(new Vector2( 0, Player.Instance.JumpForce), ForceMode2D.Impulse);
+            
+            _rigidBody.velocity = new Vector2( 0, Player.Instance.JumpForce);
+            //_rigidBody.AddForce(new Vector2( 0, Player.Instance.JumpForce), ForceMode2D.Impulse);
         }
     }   
 
-    public void AddJumpForce(float multipler)
+    public void AddJumpForce()
     {
-        _rigidBody.AddForce(new Vector2( 0, Player.Instance.JumpHoldForce * multipler), ForceMode2D.Impulse);
+        //Debug.Log("CALLED");
+        _rigidBody.velocity = new Vector2( _rigidBody.velocity.x, Player.Instance.JumpForce);
+     //   _rigidBody.AddForce(new Vector2( 0, Player.Instance.JumpHoldForce * multipler), ForceMode2D.Force);
     }
 
     [SerializeField] Transform bottomCircle;
@@ -95,7 +99,7 @@ public class PlayerDetector : MonoBehaviour
         }
         else if (!isGrounded) //If in air
         {
-           // _rigidBody.velocity = new Vector2(Player.Instance.MovementSpeed * xInput, _rigidBody.velocity.y);
+            _rigidBody.velocity = new Vector2(Player.Instance.InAirMovementSpeed * xInput, _rigidBody.velocity.y);
         }
     }
 
