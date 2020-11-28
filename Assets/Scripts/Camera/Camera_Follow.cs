@@ -59,6 +59,11 @@ public class Camera_Follow : MonoBehaviour
         followedObject = obj;
     }
 
+    public void SetZoom(float zoom)
+    {
+        if (zoom != 0) zoomOfCamera = zoom;
+    }
+
     float GetXPosition(){
         float basePosition = followedObject.position.x - centerOfCamera.x;
         float minValue = (LeftClamping.enable)  ? LeftClamping.position  : basePosition;
