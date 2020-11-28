@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 2
-  _jumpForce: 8
+  _jumpForce: 5.98
   _jumpHoldTime: 0.3
   _inAirMovementSpeed: 3
 --- !u!4 &1129009359
