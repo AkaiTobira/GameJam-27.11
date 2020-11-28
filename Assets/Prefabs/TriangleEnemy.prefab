@@ -339,6 +339,8 @@ MonoBehaviour:
   _entity: {fileID: 8625719594224755181}
   _wallDetector: {fileID: 8625719595367808779}
   _visionBox: {fileID: 8625719595411858840}
+  noFriction: {fileID: 6200000, guid: 3335e15a547ad36458c2c76a458d836b, type: 2}
+  Friction: {fileID: 6200000, guid: 7b1011d1a5e931644bb89d9d4c1d59a4, type: 2}
   bottomCircle: {fileID: 8625719595915269027}
   groundCheckRadius: 0.1
   whatIsGround:

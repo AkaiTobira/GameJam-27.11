@@ -20,7 +20,6 @@ public class EnemyWalking : BaseState, IState
         _entity.AnimatorExt.SetBool("OnGround", true);
     }
     public override void ProcessPhysics(){
-        Debug.Log(_entity.Detector.seePlayer());
 
         if( _entity.Detector.isNearWall() || !_entity.Detector.isEdgeClose() ){
             direction *= -1;
