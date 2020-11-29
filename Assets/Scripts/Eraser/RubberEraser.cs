@@ -22,7 +22,10 @@ public class RubberEraser : MonoBehaviour
     }
 
     public static void EnableEraser(){
-        Instance?.gameObject.SetActive(true);
+        if (Instance != null)
+        {
+            Instance.gameObject.SetActive(true);
+        }
     }
 
     // Start is called before the first frame update
