@@ -12,20 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bf64a6eeedc0fd4d96c0609640ce497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _activateObjects: []
 --- !u!1001 &6001763055216791200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103,10 +90,15 @@ PrefabInstance:
       propertyPath: _color.b
       value: 0.2980392
       objectReference: {fileID: 0}
+    - target: {fileID: 4318766527099972625, guid: 1a36f05241fe15a429b01fbddd579864,
+        type: 3}
+      propertyPath: _oneShot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7435011219189408551, guid: 1a36f05241fe15a429b01fbddd579864,
         type: 3}
       propertyPath: m_Name
-      value: Event Trigger
+      value: Activate Objects Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 7435011219189408551, guid: 1a36f05241fe15a429b01fbddd579864,
         type: 3}

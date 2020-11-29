@@ -53,7 +53,7 @@ public class RubberEraser : MonoBehaviour
             foreach (var otherCollider in otherColliders)
             {
                 var erasable = otherCollider.GetComponent<Erasable>();
-                if (erasable == null)
+                if (erasable == null || !erasable.enabled)
                 {
                     RegenerateColliders();
                     continue;

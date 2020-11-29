@@ -22,7 +22,6 @@ public class Erasable : MonoBehaviour
 
         var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         var originalTexture = spriteRenderer.sprite.texture;
-        Debug.Log(originalTexture.format);
          _texture = new Texture2D(originalTexture.width, originalTexture.height, TextureFormat.RGBA32, false)
         {
             filterMode = FilterMode.Bilinear,
@@ -46,6 +45,10 @@ public class Erasable : MonoBehaviour
         }
 
         int eraserSize = RubberEraser.Instance.erSize;
+        if (_texture == null)
+        {
+            return;
+        }
         int w = _texture.width;
         int h = _texture.height;
         var mousePos = TextureSpaceCoord(hitPoint);
