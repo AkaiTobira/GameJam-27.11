@@ -2273,6 +2273,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &488203160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3775420549196852615, guid: 1b3c8df282d945040b2c483430ea88b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 654376474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &495057765
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,8 +2695,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 2
   _playerSpawn: {fileID: 164230887}
+  _respawnPlayerOnReloadOnly: 0
   _playerFacing: 1
   _cameraPlaceholder: {fileID: 962976067}
+  _onReload:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &553313914
 GameObject:
   m_ObjectHideFlags: 0
@@ -3602,7 +3612,7 @@ PrefabInstance:
     - target: {fileID: 7247426437467251149, guid: c9c1c267983738b46bbeaec2521906b0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7247426437467251149, guid: c9c1c267983738b46bbeaec2521906b0,
         type: 3}
@@ -4101,7 +4111,7 @@ PrefabInstance:
     - target: {fileID: 7247426437467251149, guid: c9c1c267983738b46bbeaec2521906b0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7247426437467251149, guid: c9c1c267983738b46bbeaec2521906b0,
         type: 3}
@@ -5518,9 +5528,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelNumber: 3
-  _playerSpawn: {fileID: 0}
-  _playerFacing: 0
+  _playerSpawn: {fileID: 164230887}
+  _respawnPlayerOnReloadOnly: 1
+  _playerFacing: 1
   _cameraPlaceholder: {fileID: 1621745317}
+  _onReload:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 488203160}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 160295182}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1065445585
 Transform:
   m_ObjectHideFlags: 0
@@ -6874,11 +6910,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273441487}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.50361633, y: -0.054472446, z: 0}
+  m_LocalPosition: {x: 1.7936163, y: -0.26447248, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2092872354}
-  m_RootOrder: 4
+  m_Father: {fileID: 654376475}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1273441489
 SpriteRenderer:
@@ -7000,7 +7036,7 @@ PrefabInstance:
     - target: {fileID: 7247426437467251149, guid: c9c1c267983738b46bbeaec2521906b0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7247426437467251149, guid: c9c1c267983738b46bbeaec2521906b0,
         type: 3}
@@ -8631,11 +8667,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578910821}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.59, y: 0.23, z: 0}
+  m_LocalPosition: {x: 1.8800001, y: 0.01999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2092872354}
-  m_RootOrder: 5
+  m_Father: {fileID: 654376475}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1578910823
 SpriteRenderer:
@@ -11593,8 +11629,6 @@ Transform:
   - {fileID: 254436955}
   - {fileID: 1580044184}
   - {fileID: 160295183}
-  - {fileID: 1273441488}
-  - {fileID: 1578910822}
   - {fileID: 723544524}
   - {fileID: 1297350578}
   - {fileID: 799395557}

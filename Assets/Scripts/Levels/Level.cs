@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Level : MonoBehaviour
 {
     public int levelNumber;
 
     [SerializeField] private Transform _playerSpawn;
+    [SerializeField] private bool _respawnPlayerOnReloadOnly = false;
     [SerializeField][Range(-1, 1)] private int _playerFacing;
     [SerializeField] private Camera _cameraPlaceholder;
+
+    [SerializeField] private UnityEvent _onReload = new UnityEvent();
 
     void Start()
     {
@@ -19,9 +23,9 @@ public class Level : MonoBehaviour
         }
     }
 
-    public void Activate()
+    public void Activate(bool isReload = false)
     {
-        if (_playerSpawn)
+        if (_playerSpawn && (!_respawnPlayerOnReloadOnly || isReload))
         {
             PlayerAnimator.Instance.UpdateSide(_playerFacing);
             PlayerAnimator.Instance.transform.position = _playerSpawn.position;
@@ -35,5 +39,10 @@ public class Level : MonoBehaviour
         }
 
         gameObject.SetActive(true);
+
+        if (isReload)
+        {
+            _onReload.Invoke();
+        }
     }
 }

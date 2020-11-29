@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
     private Level[] _levels;
     private int _maxLevelIndex;
 
+    private bool _reloading;
+
 
     void Awake()
     {
@@ -29,7 +31,7 @@ public class LevelManager : MonoBehaviour
     {
         if (SceneManager.sceneCount > 1)
         {
-            SceneManager.LoadScene("_Game");
+            SceneManager.LoadScene(gameObject.scene.buildIndex);
             return;
 
         }
@@ -91,11 +93,18 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        _levels[_currentLevelIndex].Activate();
+        _levels[_currentLevelIndex].Activate(_reloading);
+        _reloading = false;
     }
 
     public void ReloadLevel()
     {
+        if (_reloading)
+        {
+            return;
+        }
+
+        _reloading = true;
         Camera_Follow.Instance.SetNewFollowable(Camera_Follow.Instance.transform);
         var level = _levels[_currentLevelIndex];
         var scene = level.gameObject.scene;
