@@ -127,7 +127,7 @@ public class UnitDetector : MonoBehaviour
     private void ApplyMovement()
     {
 
-        Debug.Log( (isGrounded || _slopeInfo.isOnSlope) );
+//        Debug.Log( (isGrounded || _slopeInfo.isOnSlope) );
 
 
 

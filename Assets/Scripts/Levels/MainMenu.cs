@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
     
     public void StartButton()
     {
+       // LoadManager.instance.LoadScene(("_Game")
         SceneManager.LoadSceneAsync("_Game");
         start.interactable = false;
     }

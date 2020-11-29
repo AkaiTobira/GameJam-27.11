@@ -8,7 +8,7 @@ public class HurtState : BaseState, IState
     public HurtState(Entity gameObject) : base(gameObject){}
     public void OnEnter(){
         timeToEnd = Player.Instance.TimerOfBeeingHit;
-        PlayerAnimator.Instance.SetTrigger("GetHit");
+        PlayerAnimator.Instance.SetTrigger("Dead");
     }
     public void OnExit(){}
     public override void HandleInput(){}
@@ -16,6 +16,7 @@ public class HurtState : BaseState, IState
     public override void ProcessPhysics(){
         timeToEnd -= Time.deltaTime;
         if( timeToEnd < 0 ){
+             LevelManager.Instance.ReloadLevel();
             _stateMachine.ChangeToState( new IdleState(_entity));
         }
     }
