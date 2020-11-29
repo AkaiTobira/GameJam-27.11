@@ -12,25 +12,24 @@ public class Erasable : MonoBehaviour
     private Sprite _sprite;
     private Color32 _transparent = new Color32(0, 0, 0, 0);
     private Collider2D _myCollider;
-    private RubberEraser _rubberEraser;
     private int pixelsLeft;
     private NativeArray<Color32> _colors;
 
     // Start is called before the first frame update
     void Start()
     {
-        _rubberEraser = FindObjectOfType<RubberEraser>();
         _myCollider = gameObject.GetComponent<Collider2D>();
 
         var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         var originalTexture = spriteRenderer.sprite.texture;
+        Debug.Log(originalTexture.format);
          _texture = new Texture2D(originalTexture.width, originalTexture.height, TextureFormat.RGBA32, false)
         {
             filterMode = FilterMode.Bilinear,
             wrapMode = TextureWrapMode.Clamp
         };
-        var data = originalTexture.GetRawTextureData();
-        _texture.LoadRawTextureData(data);
+        var data = originalTexture.GetPixels();
+        _texture.SetPixels(data);
         _texture.Apply();
         _sprite = Sprite.Create(_texture, spriteRenderer.sprite.rect, new Vector2(0.5f, 0.5f));
         spriteRenderer.sprite = _sprite;
@@ -46,7 +45,7 @@ public class Erasable : MonoBehaviour
             _myCollider = gameObject.GetComponent<Collider2D>();
         }
 
-        int eraserSize = _rubberEraser.erSize;
+        int eraserSize = RubberEraser.Instance.erSize;
         int w = _texture.width;
         int h = _texture.height;
         var mousePos = TextureSpaceCoord(hitPoint);
@@ -69,7 +68,7 @@ public class Erasable : MonoBehaviour
             {
                 Vector2 pixel = new Vector2(x, y);
                 Vector2 linePos = p;
-                if (_rubberEraser.drawing)
+                if (RubberEraser.Instance.drawing)
                 {
                     float d = Vector2.Dot(pixel - lastPos, dir) / dir.sqrMagnitude;
                     d = Mathf.Clamp01(d);
