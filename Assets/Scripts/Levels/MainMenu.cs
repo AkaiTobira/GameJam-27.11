@@ -12,19 +12,12 @@ public class MainMenu : MonoBehaviour
 
     void Awake()
     {
-        if (Instance && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-
         creditsFrame.SetActive(false);
+        Cursor.visible = true;
     }
     
     public void StartButton()
     {
-       // LoadManager.instance.LoadScene(("_Game")
         SceneManager.LoadSceneAsync("_Game");
         start.interactable = false;
     }

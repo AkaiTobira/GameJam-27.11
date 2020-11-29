@@ -27,8 +27,8 @@ public class Erasable : MonoBehaviour
             filterMode = FilterMode.Bilinear,
             wrapMode = TextureWrapMode.Clamp
         };
-        var data = originalTexture.GetPixels();
-        _texture.SetPixels(data);
+        var data = originalTexture.GetRawTextureData();
+        _texture.LoadRawTextureData(data);
         _texture.Apply();
         _sprite = Sprite.Create(_texture, spriteRenderer.sprite.rect, new Vector2(0.5f, 0.5f));
         spriteRenderer.sprite = _sprite;

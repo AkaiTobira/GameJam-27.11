@@ -24,12 +24,14 @@ public class PauseMenu : MonoBehaviour
     {
         frame.SetActive(false);
         Time.timeScale = 1;
+        Cursor.visible = false;
     }
 
     public void ShowPauseMenu()
     {
         frame.SetActive(true);
         Time.timeScale = 0;
+        Cursor.visible = true;
     }
 
     public void MainMenuButton()

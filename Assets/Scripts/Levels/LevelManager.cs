@@ -52,12 +52,12 @@ public class LevelManager : MonoBehaviour
             var a = SceneManager.UnloadSceneAsync(scene);
             a.completed += (ao) =>
             {
-                SceneManager.LoadScene(sceneRef.ScenePath, LoadSceneMode.Additive);
+                SceneManager.LoadSceneAsync(sceneRef.ScenePath, LoadSceneMode.Additive);
             };
         }
         else
         {
-            SceneManager.LoadScene(sceneRef.ScenePath, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(sceneRef.ScenePath, LoadSceneMode.Additive);
         }
     }
 

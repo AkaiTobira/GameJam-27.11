@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/_Game.unity
     guid: 371e2ebdca820d9488d3ad065a41dcbc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level01.unity
     guid: b68133591d724964890c4e72342791ff
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level02.unity
     guid: 870b83cf2cb48ec40beda73378cdc92a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level03.unity
     guid: 790e7e27a0fe025449f336736d46cd3d
   - enabled: 1
@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/RedPassion/Level2.unity
     guid: 43c5a3b32d31ba94eb47cc2e6505eb0e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level04.unity
     guid: d5d8c829ae56ca743bcd5db8fa8fbf9a
   - enabled: 1
