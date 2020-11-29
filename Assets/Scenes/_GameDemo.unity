@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -136,12 +136,12 @@ PrefabInstance:
     - target: {fileID: 8189899326482696762, guid: 205d5656abad2624799d8e4c515a3605,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8189899326482696762, guid: 205d5656abad2624799d8e4c515a3605,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.26
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8189899326482696762, guid: 205d5656abad2624799d8e4c515a3605,
         type: 3}
@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 533626159}
   - component: {fileID: 533626158}
   - component: {fileID: 533626157}
+  - component: {fileID: 533626162}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -371,6 +372,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &533626162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533626156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1001 &1287305297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -523,7 +555,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 58.309998, y: 63.554485}
+  m_Size: {x: 58.309998, y: 96.06585}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -537,7 +569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503154841}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.8, y: -7.97, z: 0}
+  m_LocalPosition: {x: 3.8, y: -15.285, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -573,12 +605,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scenes:
-  - sceneAsset: {fileID: 102900000, guid: 1bda10c63b3182647a284a739a96cb66, type: 3}
-    scenePath: Assets/Scenes/Levels/RedPassion/Level0.unity
-  - sceneAsset: {fileID: 102900000, guid: de7672b96b9db0c469da321d665b0b64, type: 3}
-    scenePath: Assets/Scenes/Levels/RedPassion/Level1.unity
-  - sceneAsset: {fileID: 102900000, guid: 43c5a3b32d31ba94eb47cc2e6505eb0e, type: 3}
-    scenePath: Assets/Scenes/Levels/RedPassion/Level2.unity
+  - sceneAsset: {fileID: 102900000, guid: b68133591d724964890c4e72342791ff, type: 3}
+    scenePath: Assets/Scenes/Levels/Level01.unity
+  - sceneAsset: {fileID: 102900000, guid: 870b83cf2cb48ec40beda73378cdc92a, type: 3}
+    scenePath: Assets/Scenes/Levels/Level02.unity
+  - sceneAsset: {fileID: 102900000, guid: 790e7e27a0fe025449f336736d46cd3d, type: 3}
+    scenePath: Assets/Scenes/Levels/Level03.unity
+  - sceneAsset: {fileID: 102900000, guid: d5d8c829ae56ca743bcd5db8fa8fbf9a, type: 3}
+    scenePath: Assets/Scenes/Levels/Level04.unity
   _currentLevelIndex: 0
 --- !u!4 &1829351724
 Transform:

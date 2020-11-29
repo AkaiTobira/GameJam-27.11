@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private SceneReference[] _levelScenes;
+    [SerializeField] private SceneReference[] _scenes;
     [SerializeField] private int _currentLevelIndex;
 
     public static LevelManager Instance;
 
     private Level[] _levels;
+    private int _maxLevelIndex;
+
 
     void Awake()
     {
@@ -32,89 +34,86 @@ public class LevelManager : MonoBehaviour
 
         }
 
-        _levels = new Level[_levelScenes.Length];
-        for (int i = 0; i < _levelScenes.Length; i++)
+        _levels = new Level[1];
+        for (int i = 0; i < _scenes.Length; i++)
         {
-            var level = _levelScenes[i];
-            LoadLevel(level);
+            var sceneRef = _scenes[i];
+            LoadScene(sceneRef);
         }
     }
 
-    private void LoadLevel(SceneReference level)
+    private void LoadScene(SceneReference sceneRef)
     {
-        var scene = SceneManager.GetSceneByPath(level.ScenePath);
-        if (scene != null && scene.isLoaded)
+        var scene = SceneManager.GetSceneByPath(sceneRef.ScenePath);
+        if (scene.isLoaded)
         {
             var a = SceneManager.UnloadSceneAsync(scene);
             a.completed += (ao) =>
             {
-                SceneManager.LoadScene(level.ScenePath, LoadSceneMode.Additive);
+                SceneManager.LoadScene(sceneRef.ScenePath, LoadSceneMode.Additive);
             };
         }
         else
         {
-            SceneManager.LoadScene(level.ScenePath, LoadSceneMode.Additive);
+            SceneManager.LoadScene(sceneRef.ScenePath, LoadSceneMode.Additive);
         }
     }
 
-    public void RegisterLevel(SceneReference scene, Level level)
+    public void RegisterLevel(Level level)
     {
-        var registered = 0;
-        for (int i = 0; i < _levels.Length; i++)
+        if (level.levelNumber < 0)
         {
-            var sceneRef = _levelScenes[i];
-            if (sceneRef.ScenePath == scene.ScenePath)
-            {
-                _levels[i] = level;
-                if (i == _currentLevelIndex)
-                {
-                    level.gameObject.SetActive(false);
-                }
-            }
+            return;
+        }
 
-            if (_levels[i] != null)
+        if (level.levelNumber >= _levels.Length)
+        {
+            System.Array.Resize(ref _levels, 2 * _levels.Length);
+        }
+
+        _levels[level.levelNumber] = level;
+
+        if (level.levelNumber > _maxLevelIndex)
+        {
+            _maxLevelIndex = level.levelNumber;
+        }
+
+        if (level.levelNumber == _currentLevelIndex)
+        {
+            level.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < _maxLevelIndex; i++)
+        {
+            if (_levels[i] == null)
             {
-                registered++;
+                return;
             }
         }
 
-        if (registered == _levels.Length)
-        {
-            _levels[_currentLevelIndex].Activate();
-        }
+        _levels[_currentLevelIndex].Activate();
     }
 
     public void ReloadLevel()
     {
         Camera_Follow.Instance.SetNewFollowable(Camera_Follow.Instance.transform);
-        var levelScene = _levelScenes[_currentLevelIndex];
-        var scene = SceneManager.GetSceneByPath(levelScene.ScenePath);
+        var level = _levels[_currentLevelIndex];
+        var scene = level.gameObject.scene;
+        var buildIndex = scene.buildIndex;
         var a = SceneManager.UnloadSceneAsync(scene);
         a.completed += (ao) =>
         {
-            SceneManager.LoadScene(levelScene.ScenePath, LoadSceneMode.Additive);
+            SceneManager.LoadScene(buildIndex, LoadSceneMode.Additive);
         };
     }
 
     public void NextLevel()
     {
-        if (_currentLevelIndex == _levels.Length - 1)
+        if (_currentLevelIndex == _maxLevelIndex)
         {
             return;
         }
         _currentLevelIndex++;
         _levels[_currentLevelIndex].Activate();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            NextLevel();
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            ReloadLevel();
-        }
     }
 }
