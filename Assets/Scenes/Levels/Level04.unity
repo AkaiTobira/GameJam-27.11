@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 240569175}
   - component: {fileID: 240569174}
   - component: {fileID: 240569173}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: you shall not pass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1885,12 +1885,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240569172}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.16, y: -17.92, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.25, y: 3.0900002, z: 0}
   m_LocalScale: {x: 0.40799698, y: 0.40799698, z: 0.40799698}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 505548280}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &254436954
 GameObject:
@@ -2176,7 +2176,7 @@ PrefabInstance:
     - target: {fileID: 7247426437467251149, guid: c9c1c267983738b46bbeaec2521906b0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7247426437467251149, guid: c9c1c267983738b46bbeaec2521906b0,
         type: 3}
@@ -2399,6 +2399,7 @@ Transform:
   - {fileID: 1166044188}
   - {fileID: 1804124539}
   - {fileID: 698507217}
+  - {fileID: 240569176}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
