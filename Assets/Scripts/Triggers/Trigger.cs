@@ -43,7 +43,7 @@ public class Trigger : MonoBehaviour
             if (_oneShot)
             {
                 _enabled = false;
-                Destroy(gameObject);
+                // Destroy(gameObject);
             }
         }
     }

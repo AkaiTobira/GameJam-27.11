@@ -39,6 +39,7 @@ public class Level : MonoBehaviour
         }
 
         gameObject.SetActive(true);
+        Player.Instance.gameObject.SetActive(true);
 
         if (isReload)
         {

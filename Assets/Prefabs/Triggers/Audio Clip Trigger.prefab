@@ -185,6 +185,11 @@ PrefabInstance:
       propertyPath: _color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4318766527099972625, guid: 1a36f05241fe15a429b01fbddd579864,
+        type: 3}
+      propertyPath: _oneShot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7435011219189408551, guid: 1a36f05241fe15a429b01fbddd579864,
         type: 3}
       propertyPath: m_Name
