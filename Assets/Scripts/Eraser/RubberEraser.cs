@@ -10,9 +10,19 @@ public class RubberEraser : MonoBehaviour
     public bool drawing = false;
     public int updateTextureEachFrame;
 
+    public static RubberEraser Instance;
+
     private List<GameObject> _lastTouched = new List<GameObject>();
     private List<Collider2D> _nowTouched;
     private int _frameCount = 0;
+
+    void Awake() {
+        Instance = this;
+    }
+
+    public static void EnableEraser(){
+        Instance?.gameObject.SetActive(true);
+    }
 
     // Start is called before the first frame update
     void Start()
