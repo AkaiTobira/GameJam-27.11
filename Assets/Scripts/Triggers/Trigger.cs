@@ -18,11 +18,11 @@ public class Trigger : MonoBehaviour
     [SerializeField] private bool _oneShot;
 
     private Color _disabledColor;
-    private ITriggerHandler _handler;
+    private ITriggerHandler[] _handlers;
 
     private void OnEnable()
     {
-        _handler = GetComponent<ITriggerHandler>();
+        _handlers = GetComponents<ITriggerHandler>();
         _disabledColor = new Color(_color.r, _color.g, _color.b, 0.05f);
         _color = new Color(_color.r, _color.g, _color.b, 0.4f);
     }
@@ -36,13 +36,14 @@ public class Trigger : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            if (_handler.HandleTrigger(other))
+            foreach (var handler in _handlers)
             {
-                if (_oneShot)
-                {
-                    _enabled = false;
-                    Destroy(gameObject);
-                }
+                handler.HandleTrigger(other);
+            }
+            if (_oneShot)
+            {
+                _enabled = false;
+                Destroy(gameObject);
             }
         }
     }
