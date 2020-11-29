@@ -1,24 +1,14 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-[Serializable]
-public class ActivateObjectDef
+public class EventTriggerHandler : MonoBehaviour, ITriggerHandler
 {
-    public GameObject gameObject;
-    public bool enabled;
-}
-
-public class ActivateObjectsTriggerHandler : MonoBehaviour, ITriggerHandler
-{
-    [SerializeField] private ActivateObjectDef[] _activateObjects;
+    [SerializeField] private UnityEvent _onTrigger = new UnityEvent();
     public bool HandleTrigger(Collider2D other)
     {
-        foreach (var def in _activateObjects)
-        {
-            def.gameObject.SetActive(def.enabled);
-        }
+        _onTrigger.Invoke();
         return true;
     }
 }
