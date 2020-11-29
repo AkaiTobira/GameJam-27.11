@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/RedPassion/Level6.unity
     guid: 65ef501265b98794dadcdeb92cfa5a63
+  - enabled: 1
+    path: Assets/Scenes/Levels/RedPassion/Level7.unity
+    guid: 898998e04123ee64f84d4275f43ae5b2
   m_configObjects: {}

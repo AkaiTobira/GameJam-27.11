@@ -752,7 +752,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &253115376
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1257,6 +1257,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Backgorunds
       objectReference: {fileID: 0}
+    - target: {fileID: 1700187444881106760, guid: 5722297a202de754eb37cf8f9300a21c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1700187444881106763, guid: 5722297a202de754eb37cf8f9300a21c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1476,8 +1481,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -455687171
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -8725761527044010088, guid: 2024a006a7d532346882b2a0f5f57500,
     type: 3}
@@ -2159,7 +2164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1773451175
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2806,7 +2811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2851413122596bd4aac6030a50173eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelNumber: 5
+  levelNumber: 7
   _playerSpawn: {fileID: 2801630140128776157}
   _respawnPlayerOnReloadOnly: 0
   _playerFacing: 1
