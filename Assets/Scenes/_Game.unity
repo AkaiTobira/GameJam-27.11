@@ -136,12 +136,12 @@ PrefabInstance:
     - target: {fileID: 8189899326482696762, guid: 205d5656abad2624799d8e4c515a3605,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.33
       objectReference: {fileID: 0}
     - target: {fileID: 8189899326482696762, guid: 205d5656abad2624799d8e4c515a3605,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.26
       objectReference: {fileID: 0}
     - target: {fileID: 8189899326482696762, guid: 205d5656abad2624799d8e4c515a3605,
         type: 3}
@@ -575,10 +575,10 @@ MonoBehaviour:
   _levelScenes:
   - sceneAsset: {fileID: 102900000, guid: 1bda10c63b3182647a284a739a96cb66, type: 3}
     scenePath: Assets/Scenes/Levels/RedPassion/Level0.unity
-  - sceneAsset: {fileID: 102900000, guid: 870b83cf2cb48ec40beda73378cdc92a, type: 3}
-    scenePath: Assets/Scenes/Levels/Level02.unity
-  - sceneAsset: {fileID: 102900000, guid: 790e7e27a0fe025449f336736d46cd3d, type: 3}
-    scenePath: Assets/Scenes/Levels/Level03.unity
+  - sceneAsset: {fileID: 102900000, guid: de7672b96b9db0c469da321d665b0b64, type: 3}
+    scenePath: Assets/Scenes/Levels/RedPassion/Level1.unity
+  - sceneAsset: {fileID: 102900000, guid: 43c5a3b32d31ba94eb47cc2e6505eb0e, type: 3}
+    scenePath: Assets/Scenes/Levels/RedPassion/Level2.unity
   _currentLevelIndex: 0
 --- !u!4 &1829351724
 Transform:
