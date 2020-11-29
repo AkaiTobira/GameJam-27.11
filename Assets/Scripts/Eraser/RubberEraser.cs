@@ -18,6 +18,7 @@ public class RubberEraser : MonoBehaviour
 
     void Awake() {
         Instance = this;
+        gameObject.SetActive(false);
     }
 
     public static void EnableEraser(){
