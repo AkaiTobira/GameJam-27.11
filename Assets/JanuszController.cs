@@ -11,6 +11,7 @@ public class JanuszController : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        gameObject.SetActive(false);
         JanuszAnimator.SetTrigger("Outplayed");
         JanuszBox.enabled = false;
     }
