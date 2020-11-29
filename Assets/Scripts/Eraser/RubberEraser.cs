@@ -42,7 +42,7 @@ public class RubberEraser : MonoBehaviour
                 if (erasable == null)
                 {
                     RegenerateColliders();
-                    return;
+                    continue;
                 }
 
                 if (_frameCount == 0)
