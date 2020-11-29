@@ -7099,8 +7099,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _activateObjects.Array.data[0].gameObject
       value: 
-      objectReference: {fileID: 5688573865519343119, guid: 9090554ad0875b446aad41759a57064e,
-        type: 3}
+      objectReference: {fileID: 5688573865559966550}
     - target: {fileID: 1542428814659571330, guid: 64174c6533458f449993192237c46c52,
         type: 3}
       propertyPath: _activateObjects.Array.data[0].enabled
