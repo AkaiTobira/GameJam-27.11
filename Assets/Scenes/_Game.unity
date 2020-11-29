@@ -562,6 +562,8 @@ MonoBehaviour:
     scenePath: Assets/Scenes/Levels/RedPassion/Level6.unity
   - sceneAsset: {fileID: 102900000, guid: 898998e04123ee64f84d4275f43ae5b2, type: 3}
     scenePath: Assets/Scenes/Levels/RedPassion/Level7.unity
+  - sceneAsset: {fileID: 102900000, guid: 63dc43f1486f9f44aa8001c5787a48b6, type: 3}
+    scenePath: Assets/Scenes/Levels/RedPassion/Level8.unity
   _currentLevelIndex: 4
 --- !u!4 &1829351724
 Transform:
