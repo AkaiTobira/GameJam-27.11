@@ -1190,7 +1190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2043515611
 Transform:
   m_ObjectHideFlags: 0
@@ -5289,8 +5289,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 1
   _playerSpawn: {fileID: 164230887}
+  _respawnPlayerOnReloadOnly: 0
   _playerFacing: 1
   _cameraPlaceholder: {fileID: 188346563}
+  _onReload:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5369117864180638744
 GameObject:
   m_ObjectHideFlags: 0
